@@ -1,0 +1,10 @@
+.create_user-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create_user-form__container {
+  margin-bottom: 1rem;
+}
