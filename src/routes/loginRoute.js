@@ -1,9 +1,6 @@
 const route = require('express').Router();
+const loginController = require('../controllers/loginController');
 
-route.get('/', (req, res, next) => {
-  res.render('login', {
-    pageTitle: 'Login'
-  });
-});
+route.get('/signup', loginController.getSignup);
 
 module.exports = route;
