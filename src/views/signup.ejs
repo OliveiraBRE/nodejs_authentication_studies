@@ -1,22 +1,29 @@
 <%- include('./includes/header') %>
-</head>
-<body>
-  <form class="create_user-form" action="/signup" method="POST">
-    <h1>SignUp</h1>
-    <div class="create_user-form__container">
-      <label for="name">Nome</label>
-      <input type="text" name="name" id="name"/>
-    </div>
-    <div class="create_user-form__container">
-      <label for="email">Email</label>
-      <input type="text" name="email" id="email"/>
-    </div>
-    <div class="create_user-form__container">
-      <label for="password">Senha</label>
-      <input type="password" name="password" id="password"/>
-    </div>
-    
-    <button type="submit">Create User</button>
-  </form>
-</body>
-</html>
+  </head>
+
+  <body>
+    <%- include('./includes/nav') %>
+      <section>
+        <div class="container">
+
+          <form class="create_user-form" action="/signup" method="POST">
+            <h1>SignUp</h1>
+            <div class="create_user-form__container">
+              <label for="name">Nome</label>
+              <input type="text" name="name" id="name" />
+            </div>
+            <div class="create_user-form__container">
+              <label for="email">Email</label>
+              <input type="text" name="email" id="email" />
+            </div>
+            <div class="create_user-form__container">
+              <label for="password">Senha</label>
+              <input type="password" name="password" id="password" />
+            </div>
+
+            <button type="submit">Create User</button>
+          </form>
+
+        </div>
+      </section>
+      <%- include('./includes/footer') %>
