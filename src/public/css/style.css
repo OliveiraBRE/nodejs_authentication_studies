@@ -110,3 +110,8 @@ button:active {
   color: #e91c1c;
   font-size: .8rem;
 }
+
+.userDisplay {
+  color: var(--color-light);
+  margin-right: 2rem;
+}

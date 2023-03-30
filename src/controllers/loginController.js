@@ -9,7 +9,8 @@ module.exports = {
 
     res.render('home', {
       pageTitle: 'Home',
-      isLoggedIn: true
+      isLoggedIn: req.session.isLoggedIn,
+      user: req.session.user.email
     });
   },
 
