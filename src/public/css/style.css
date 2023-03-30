@@ -58,7 +58,7 @@ section .container {
 
 }
 
-.create_user-form {
+.form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,22 +66,22 @@ section .container {
   margin-top: 3rem;
 }
 
-.create_user-form h1 {
+.form h1 {
   margin-bottom: 1rem;
 }
 
-.create_user-form__container {
+.form__container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin-bottom: 1rem;
 }
 
-.create_user-form__container label {
+.form__container label {
   font-size: .8rem;
 }
 
-.create_user-form__container input {
+.form__container input {
   width: 12rem;
   height: 1.5rem;
   border: .15rem solid var(--color-purpple);

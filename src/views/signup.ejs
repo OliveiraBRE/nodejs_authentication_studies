@@ -6,23 +6,23 @@
       <section>
         <div class="container">
 
-          <form class="create_user-form" action="/signup" method="POST">
+          <form class="form" action="/signup" method="POST">
             <h1>SignUp</h1>
             <% if(invalidEmail) { %>
               <span class="errorMessage">Email já cadastrado</span>
             <% } %>
-            <div class="create_user-form__container">
+            <div class="form__container">
               <label for="email">Email</label>
               <input type="text" name="email" id="email" />
             </div>
             <% if(invalidPassword) { %>
               <span class="errorMessage">Senha invalida</span>
             <% } %>
-            <div class="create_user-form__container">
+            <div class="form__container">
               <label for="password">Senha</label>
               <input type="password" name="password" id="password" />
             </div>
-            <div class="create_user-form__container">
+            <div class="form__container">
               <label for="confirfmPassword">Confirmar Senha</label>
               <input type="password" name="confirmPassword" id="confirmPassword" />
             </div>

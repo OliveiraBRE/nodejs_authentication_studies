@@ -58,5 +58,34 @@ module.exports = {
       .catch(error => {
         console.error(error);
       })
+  },
+
+  postLogin(req, res, next) {
+    const { email, password } = req.body;
+
+    User.findOne({ email: email })
+      .then(user => {
+        if (!user) {
+          return res.redirect('/signup');
+        }
+
+        bcrypt.compare(password, user.password)
+          .then(doMatch => {
+            if (doMatch) {
+              req.session.isLoggedIn = true;
+              req.session.user = user;
+              return req.session.save(() => {
+                res.redirect('/home');
+              });
+            }
+
+            return res.redirect('/signin');
+          })
+          .catch(error => {
+            console.error(error);
+            res.redirect('/signin');
+          })
+      })
+      .catch(error => console.error(error));
   }
 }
