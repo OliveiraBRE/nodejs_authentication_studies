@@ -3,6 +3,10 @@ const User = require('../models/User');
 
 module.exports = {
   home(req, res, next) {
+    if (!req.session.isLoggedIn) {
+      return res.redirect('/signin');
+    }
+
     res.render('home', {
       pageTitle: 'Home',
       isLoggedIn: true
@@ -87,5 +91,13 @@ module.exports = {
           })
       })
       .catch(error => console.error(error));
+  },
+
+  getLogout(req, res, next) {
+    req.session.destroy(error => {
+      if (error) console.error(error);
+
+      res.redirect('/signin');
+    })
   }
 }
