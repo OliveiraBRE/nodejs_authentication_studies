@@ -105,3 +105,8 @@ button:hover {
 button:active {
   transform: translateY(.1rem);
 }
+
+.errorMessage {
+  color: #e91c1c;
+  font-size: .8rem;
+}
