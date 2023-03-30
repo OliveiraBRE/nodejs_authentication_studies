@@ -1,3 +1,5 @@
+const User = require('../models/User');
+
 module.exports = {
   home(req, res, next) {
     res.render('home', {
@@ -11,5 +13,18 @@ module.exports = {
       pageTitle: 'SignUp',
       isLoggedIn: false
     });
+  },
+
+  createUser(req, res, next) {
+    const user = new User({
+      user: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+    })
+    user.save()
+    .then(() => {
+      res.redirect('/home');
+    })
+    .catch(() => console.error(error));
   }
 }
