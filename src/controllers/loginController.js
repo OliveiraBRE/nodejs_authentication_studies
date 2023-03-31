@@ -10,7 +10,8 @@ module.exports = {
     res.render('home', {
       pageTitle: 'Home',
       isLoggedIn: req.session.isLoggedIn,
-      user: req.session.user.email
+      user: req.session.user.email,
+      csrfToken: req.csrfToken()
     });
   },
 
@@ -19,7 +20,7 @@ module.exports = {
       pageTitle: 'SignUp',
       isLoggedIn: false,
       invalidEmail: false,
-      invalidPassword: false
+      invalidPassword: false      
     });
   },
 
@@ -28,7 +29,7 @@ module.exports = {
       pageTitle: 'SignIn',
       isLoggedIn: false,
       invalidEmail: false,
-      invalidPassword: false
+      invalidPassword: false      
     });
   },
 
@@ -52,7 +53,7 @@ module.exports = {
                 pageTitle: 'SignUp',
                 isLoggedIn: false,
                 invalidEmail: false,
-                invalidPassword: true
+                invalidPassword: true                
               });
             }
           })

@@ -1,13 +1,14 @@
 require('dotenv').config();
 const path = require('path');
-const session = require('express-session')
+const session = require('express-session');
+const csrf = require('csurf');
 const MongoSession = require('connect-mongodb-session')(session);
 const express = require('express');
 const loginRoute = require('./routes/loginRoute');
 
 const app = express();
-
 const connectString = process.env.CONNECTSTRING.replace('<PASSWORD>', process.env.MONGODBPSW);
+const csrfProtection = csrf();
 
 app.set("view engine", "ejs");
 app.set("views", "src/views");
@@ -27,6 +28,15 @@ app.use(session({
   saveUninitialized: false,
   store: store
 }));
+
+app.use(csrfProtection);
+
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  res.locals.csrfToken = req.csrfToken();
+
+  next();
+});
 
 app.use('/', loginRoute);
 

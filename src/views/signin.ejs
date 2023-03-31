@@ -21,7 +21,8 @@
               <label for="password">Senha</label>
               <input type="password" name="password" id="password" />
             </div>
-
+            
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button type="submit">Login</button>
           </form>
         </div>
