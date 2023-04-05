@@ -24,6 +24,7 @@ header{
   width: 90vw;
   height: inherit;
   display: flex;
+  position: relative;
 }
 
 header .container {
@@ -114,4 +115,9 @@ button:active {
 .userDisplay {
   color: var(--color-light);
   margin-right: 2rem;
+}
+
+.centered {
+  position: absolute;
+  margin-top: 16rem;
 }
