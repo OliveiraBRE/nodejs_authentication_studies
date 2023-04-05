@@ -11,6 +11,9 @@
             <% if(invalidEmail) { %>
               <span class="errorMessage">Email já cadastrado</span>
             <% } %>
+            <% if(invalidData) { %>
+              <span class="errorMessage">Email não cadastrado</span>
+            <% } %>
             <div class="form__container">
               <label for="email">Email</label>
               <input type="text" name="email" id="email" />

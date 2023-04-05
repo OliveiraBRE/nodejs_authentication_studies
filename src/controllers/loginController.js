@@ -31,7 +31,8 @@ module.exports = {
       pageTitle: 'SignUp',
       isLoggedIn: false,
       invalidEmail: false,
-      invalidPassword: false
+      invalidPassword: false,
+      invalidData: false
     });
   },
 
@@ -39,8 +40,7 @@ module.exports = {
     res.render('signin', {
       pageTitle: 'SignIn',
       isLoggedIn: false,
-      invalidEmail: false,
-      invalidPassword: false
+      invalidData: false
     });
   },
 
@@ -84,7 +84,13 @@ module.exports = {
     User.findOne({ email: email })
       .then(user => {
         if (!user) {
-          return res.redirect('/signup');
+          return res.render('signup', {
+            pageTitle: 'SignUp',
+            isLoggedIn: false,
+            invalidEmail: false,
+            invalidPassword: false,
+            invalidData: true
+          });
         }
 
         bcrypt.compare(password, user.password)
@@ -97,7 +103,11 @@ module.exports = {
               });
             }
 
-            return res.redirect('/signin');
+            return res.render('signin', {
+              pageTitle: 'SignIn',
+              isLoggedIn: false,
+              invalidData: true
+            });
           })
           .catch(error => {
             console.error(error);
