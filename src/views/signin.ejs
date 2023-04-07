@@ -7,12 +7,12 @@
         <div class="container column">
           <form class="form" action="/login" method="POST">
             <h1>Login</h1>
-            <% if(invalidData) { %>
-              <span class="errorMessage">Senha inválida</span>
+            <% if(errorMessage) { %>
+              <span class="errorMessage"><%= errorMessage %></span>
             <% } %>
             <div class="form__container">
               <label for="email">Email</label>
-              <input type="text" name="email" id="email" />
+              <input type="text" name="email" id="email" value="<%= oldInput.email %>"/>
             </div>
             <div class="form__container">
               <label for="password">Senha</label>
